@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>AI Communication Tool Development Roadmap</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/solarized.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+		<!-- Custom Styles -->
+		<style>
+			.reveal {
+				font-family: 'Calibri', sans-serif;
+			}
+			/* Scale the font size down to 60% of the default */
+			.reveal .slides {
+				font-size: 0.6em;
+			}
+			/* Add margin below headings */
+			.reveal .slides h1,
+			.reveal .slides h2,
+			.reveal .slides h3,
+			.reveal .slides h4 {
+				margin-bottom: 35px !important;
+			}
+			/* Add margin between content elements */
+			.reveal .slides p,
+			.reveal .slides ul,
+			.reveal .slides ol {
+				margin-bottom: 25px !important;
+			}
+			.reveal .slides li {
+				margin-bottom: 15px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## AI Communication Tool Development Roadmap
+						### A Multi-Phase Journey
+
+						* This roadmap outlines a structured process for developing an **in-house AI application for manager-employee communication**.
+						* It emphasizes **subordinate-centric benefits** and **supervisor burden reduction**, aiming for **operational efficiency**, **improved support quality**, and **data-driven decision-making**.
+						* The process is designed to be **agile and iterative**, allowing for adjustments based on testing and user feedback throughout development.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 1: Project Foundation & Definition
+						### (Inception & Discovery)
+
+						* **Goal:** To define the core problem, purpose, and initial scope of the project.
+						* **Key Activities:**
+							* **Problem Identification:** Pinpoint communication pain points, such as "employees feel unheard" or "managers burdened by repetitive queries".
+							* **Core Purpose & Benefits:** Establish the primary goal of empowering subordinates to consult company policies independently and reducing supervisor workload by handling routine inquiries.
+							* **Requirements Gathering:** Conduct user interviews with managers and employees to understand needs, including desired features like a **ChatGPT-style chatbot for employees** and a **dashboard with key indicators for managers**.
+							* **Feasibility Study:** Assess technical, operational, and financial viability.
+							* **Scope Definition (MVP):** Define the smallest valuable set of features for the initial release.
+							* **Stakeholder Buy-in:** Secure commitment from management, HR, and IT.
+						* **Duration:** The Proof of Concept (PoC) phase, which is part of this initial exploration, can range from **several weeks to a few months**.
+						* **Outputs:** A problem statement, core purpose, preliminary feature list, feasibility report, initial scope, and stakeholder agreement. This phase also culminates in the PoC, yielding an **AI model prototype**, a **feature verification report**, and an **accuracy evaluation report**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 2: Detailed Planning & Design
+						### (How & Who)
+
+						* **Goal:** To establish the project roadmap, allocate resources, and lay the technical foundation by translating requirements into detailed blueprints.
+						* **Key Activities:**
+							* **Project Plan Development:** Create a detailed plan including phases, milestones, timelines, and budget.
+							* **Technology Stack Selection:** Mandate the use of **AWS services** such as **AWS Transcribe** for voice recognition, **AWS Comprehend** for summarization, **AWS S3** for storage, **AWS Kinesis Video Streams** for live capture, **AWS SageMaker** for custom analytics, **AWS Lex/Kendra** for chatbot/RAG, and supporting services like EC2, Lambda, and RDS/DynamoDB.
+							* **Architecture Design (High-Level & Detailed):** Map data flow, system integrations, and security. Detail how application components will interact with specific AWS service APIs for each feature. The high-level architecture centers around a **serverless backend (AWS Lambda)**, **Amazon RDS for PostgreSQL**, and a suite of **AWS AI/ML services**, with a **React frontend hosted on AWS Amplify**.
+							* **Risk Management:** Identify potential risks like data quality, model bias, and user adoption, along with mitigation strategies.
+							* **Team Formation & Roles:** Define roles for developers, data scientists, UI/UX, QA, AWS specialists, and content managers.
+							* **User Experience (UX) & User Interface (UI) Design:** Create wireframes, mockups, and prototypes for the employee chat, manager dashboard, 1on1 history views, login flow, and file management, ensuring an intuitive and professional look.
+							* **Database Design:** Develop a schema for **Amazon RDS for PostgreSQL** to store user profiles, chat history, 1on1 meeting metadata, summarized content, AI-generated insights, and internal policy documents.
+							* **AI Model Architecture Design:** Detail models for Natural Language Understanding (NLU), Retrieval Augmented Generation (RAG), Speech-to-text, Summarization, Sentiment analysis, Entity extraction, and Predictive models.
+							* **Data Pipeline Design:** Outline the flow of data from source to AWS services for processing, storage, and application display.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 3: Core Infrastructure & Manager MVP
+						### (Months 1-3 of Development)
+
+						* **Goal:** To establish the fundamental AWS infrastructure and deliver a Minimum Viable Product (MVP) for managers.
+						* **Key Activities:**
+							* **Set up AWS Foundation:** Configure core AWS services like VPC, IAM, S3, and RDS for PostgreSQL.
+							* **Develop User Authentication:** Implement **AWS Cognito** for user identity, role-based access control, and secure authentication for both managers and employees.
+							* **Build Manager Dashboard UI:** Create the manager dashboard, displaying indicators such as the number of subordinates, and providing a **"START 1on1" button** for quick recording and summarization.
+							* **Develop Employee List View:** Implement the list of subordinates (members).
+							* **Implement Basic 1on1 History View:** Allow managers to review past session content in chronological order, focusing on structure without advanced AI insights.
+						* **KPIs:** **Establish baseline for feature usage**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 4: Live 1on1 & Basic AI
+						### (Months 4-6 of Development)
+
+						* **Goal:** To enable live 1on1 recording and introduce initial AI features for managers.
+						* **Key Activities:**
+							* **Integrate Kinesis Video Streams:** Implement live audio/video capture from 1on1 sessions, feeding streams to AWS Transcribe.
+							* **Integrate AWS Transcribe:** Process live audio to generate real-time, accurate transcripts of 1on1 meetings.
+							* **Integrate AWS Comprehend:** Utilize Comprehend for meeting analysis to extract key phrases, determine sentiment, and generate initial summaries.
+							* **Populate Manager Dashboard with Satisfaction Levels:** Begin displaying interview satisfaction levels on the manager dashboard, potentially derived from sentiment analysis.
+							* **System Testing:** Rigorously test all AWS service integrations (e.g., Transcribe accuracy, Comprehend output quality).
+						* **KPIs:** **Measure Meeting Feature Utility** and **Supervisor Burden Reduction (qualitative)**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 5: Employee Chatbot & RAG
+						### (Months 7-8 of Development)
+
+						* **Goal:** To deploy the employee-facing chatbot for company policy and decision support.
+						* **Key Activities:**
+							* **Set up AWS Kendra:** Configure Kendra to index internal policy documents stored in S3, enabling enterprise search.
+							* **Build and Deploy Employee-Side Chatbot:** Create a **ChatGPT-style interface that uses Retrieval-Augmented Generation (RAG)** to refer to internal documents, providing company-specific answers and decision-making support. The chatbot will also allow employees to review past 1on1 discussions with their supervisor.
+							* **Test Chatbot Functionality:** Test responsiveness, accuracy of policy answers, and validity of source links.
+						* **KPIs:** **Measure Policy Consultation Efficacy**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 6: Advanced AI & Insights
+						### (Months 9-12 of Development)
+
+						* **Goal:** To deepen the AI capabilities, providing more personalized and actionable insights.
+						* **Key Activities:**
+							* **Develop Custom SageMaker Models:** Train and deploy models using AWS SageMaker for advanced analysis, such as identifying manager expectations, detecting subordinate motivation drivers, generating **personalized action guidelines for employees**, or inferring subordinate characteristics.
+							* **Refine Individual 1on1 History:** Enhance the personalized screen for each subordinate to show their goals, characteristics, and AI-suggested insights based on past conversations.
+							* **Implement AI-generated Action Guidelines:** Ensure the AI can generate action guidelines for subordinates based on their supervisor's conversations.
+							* **Refine UI based on User Feedback:** Continuously improve the user interface based on ongoing feedback from both managers and employees.
+							* **AI-Specific Testing:** Conduct bias detection and mitigation, robustness testing, and work towards explainability for AI outputs.
+						* **KPIs:** **Measure AI Model Accuracy**, **AI Explainability**, and **impact on Goal Achievement Rates**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Phase 7: Deployment & Ongoing Operations
+						### (Continuous)
+
+						* **Goal:** To release the application to end-users and ensure its long-term value and evolution.
+						* **Key Activities:**
+							* **Deployment Planning & Infrastructure Setup:** Strategize for the production environment, leveraging AWS deployment services like AWS Elastic Beanstalk, AWS Amplify (for the frontend), EC2, or ECS.
+							* **User Training & Documentation:** Provide guides for both employees (on using the chat and reviewing meetings) and supervisors (on utilizing analysis, dashboard insights, and file management).
+							* **Bug Fixing & Monitoring:** Continuously address post-launch issues and track application performance using **AWS CloudWatch and AWS X-Ray**.
+							* **Updates & Enhancements:** Implement new features based on ongoing feedback, such as new policy categories or enhanced meeting insights.
+							* **AI Model Monitoring & Retraining:** **Crucially, regularly monitor for model drift** and retrain models with fresh data (e.g., new policies, evolving communication patterns) to maintain accuracy and relevance, including updating RAG models.
+							* **Feedback Loop:** Establish channels for continuous user feedback to drive future iterations and ensure the tool remains highly valuable.
+							* **Security Audits:** Regularly perform security audits, ensuring data privacy for sensitive information.
+						* **KPIs:** **Track all KPIs continuously** to ensure long-term value, including those related to **Meeting Feature Utility, Supervisor Burden Reduction, Policy Consultation Efficacy, AI Model Accuracy, AI Explainability, and Goal Achievement Rates**.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conclusion: Building a Dynamic Communication Hub
+
+						This comprehensive roadmap covers the journey from the initial concept to the continuous operation and evolution of your AI communication tool. It provides a structured, multi-phase approach designed to ensure systematic progress and achieve desired outcomes such as operational efficiency and data-driven decision-making. The project heavily leverages **AWS services** for its core infrastructure, AI/ML capabilities, and deployment. Crucially, the development process is **iterative and user-centric**, incorporating continuous feedback loops and robust monitoring for both application performance and AI model accuracy to ensure the tool remains relevant and valuable over time.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Analogy
+
+						Building this AI communication tool is like **cultivating a smart garden**. You start by **preparing the soil and planting the foundational seeds** (Phase 1: Project Foundation), defining what you want to grow and why. Then, you **design the irrigation and support structures** (Phase 2: Detailed Planning), ensuring everything is in place for robust growth. Next, you **nurture the initial sprouts** (Phase 3: Manager MVP), seeing the first signs of functionality. As the garden matures, you **add automated watering and fertilization systems** (Phase 4: Live 1on1 & Basic AI) to enhance growth and introduce initial insights. You then **introduce specialized tools for specific plant needs** (Phase 5: Employee Chatbot & RAG) and **advanced sensors to optimize growing conditions** (Phase 6: Advanced AI & Insights). Finally, you **continuously tend the garden, prune, monitor for pests, and adapt to seasonal changes** (Phase 7: Deployment & Ongoing Operations), ensuring it remains vibrant and productive year after year.
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
