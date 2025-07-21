@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>5分間プレゼンテーション：AIコミュニケーションツール</title>
+
+		<!-- Google Fonts: Noto Sans JP -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/solarized.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+		<!-- Custom Styles -->
+		<style>
+			body {
+				font-family: 'Noto Sans JP' !important;
+			}
+			.reveal {
+				font-family: 'Noto Sans JP' !important;
+			}
+			.reveal .slides * {
+				font-family: 'Noto Sans JP', sans-serif !important;
+			}
+			/* Scale the font size for readability */
+			.reveal .slides {
+				font-size: 0.5em;
+			}
+			/* Add margin below headings */
+			.reveal .slides h1,
+			.reveal .slides h2,
+			.reveal .slides h3,
+			.reveal .slides h4 {
+				margin-bottom: 35px !important;
+			}
+			/* Add margin between content elements */
+			.reveal .slides p,
+			.reveal .slides ul,
+			.reveal .slides ol {
+				margin-bottom: 25px !important;
+			}
+			.reveal .slides li {
+				margin-bottom: 15px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## AI搭載コミュニケーションツールの構築
+						### 戦略的ロードマップ
+
+						**日付:** 2025年7月22日
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## 課題と機会
+
+						* **課題:** コミュニケーションのギャップが存在します。マネージャーは繰り返しの質問に負担を感じ、従業員は意見が聞かれていないと感じたり、情報にすぐにアクセスできなかったりします。
+						* **機会:** これらのギャップを埋めるための社内AIツールを構築できます。
+						* **主な目標:**
+							* **従業員の能力向上:** 社内規定に関する質問に対し、即座に正確な回答を提供します。
+							* **マネージャーの業務負荷軽減:** 定型的な問い合わせや会議の要約を自動化します。
+							* **サポートの質の向上:** データを活用してチームのニーズを理解し、コミュニケーションの質を向上させます。
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## 12ヶ月間の開発計画
+
+						* **1〜3ヶ月目：基盤構築とマネージャー向けMVP**
+							* AWSのコアインフラとセキュリティを構築します。
+							* マネージャーがチームを表示し、1on1を開始できる基本的なダッシュボードを提供します。
+
+						* **4〜6ヶ月目：ライブ会議と基本的なAI機能**
+							* 1on1会議のライブ文字起こしと要約を可能にします。
+							* マネージャーは会議の感情分析などの初期的なインサイトを得られます。
+
+						* **7〜12ヶ月目：従業員向けツールと高度なインサイト**
+							* 社内規定に関する質問のための従業員向けチャットボット（RAG）を導入します。
+							* パーソナライズされた行動指針やより深いインサイトを提供するための高度なAIモデルを展開します。
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## 主要技術
+
+						* **クラウドプラットフォーム:** スケーラビリティとセキュリティのために**Amazon Web Services (AWS)**を利用します。
+						* **主要なAIサービス:**
+							* **AWS Transcribe & Comprehend:** ライブ会議分析用。
+							* **AWS Kendra & Lex:** 従業員向けRAGチャットボットの動力源。
+							* **AWS SageMaker:** カスタムの高度なAIモデル用。
+						* **アプリケーション:** プロフェッショナルなユーザー体験のためのモダンな**React**フロントエンド。
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## 期待される成果
+
+						* **業務効率の向上:** マネージャーが定型的な質問に費やす時間を大幅に削減します。
+						* **サポート品質の向上:** マネージャーがデータに基づいたインサイトを得て、チームをより良くサポートできるようにします。
+						* **従業員の能力向上:** 従業員にセルフサービスで自身の進捗を確認できるツールを提供します。
+						* **未来への基盤:** 会社のニーズと共に成長する、動的で進化するプラットフォームを構築します。
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
